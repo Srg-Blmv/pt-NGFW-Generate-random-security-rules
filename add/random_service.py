@@ -50,7 +50,7 @@ def get_id_groupe(groups):
 def random_service():
   auth()
   url_serv  = f"https://{mgmt_ip}/api/v2/CreateService"
-  possible_transport = ["SERVICE_PROTOCOL_TCP", "SERVICE_PROTOCOL_UDP"]
+  possible_transport = ["6", "17"]
   for i in range(obj_num):
     random_port = random.randrange(1024, 65536)
     random_transport = random.choice(possible_transport)
