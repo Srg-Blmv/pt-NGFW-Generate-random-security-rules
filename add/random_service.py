@@ -73,7 +73,6 @@ def random_service():
     print(f"{random_transport}:{random_port} {response_ser.json()}")
 
 
-
 mgmt_ip = "192.168.212.101"
 mgmt_login =  "admin"
 mgmt_pass = "xxXX1234$"
