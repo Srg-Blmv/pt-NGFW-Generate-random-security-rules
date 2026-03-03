@@ -12,6 +12,14 @@ cookies = ""
 headers = {"Content-Type": "application/json"}
 payload = {}
 
+
+
+app_list = [
+# до Версии 1.10 были проблемы что не все app могут пропушиться.  список исключений сюда, или список необходимых приложений
+# в функции get_app  раскоментировать строчку ( if item["name"] not in app_list ) и сделать Tab на двух следующих  строках 
+]
+
+
 def auth():
     global global_gr_id, cookies
     
@@ -62,8 +70,14 @@ def get_app():
     if response.status_code == 200:
         data = response.json()
         #print(data)
-        app =  [item["id"] for item in data["applications"]]
+        app = []
+        for item in data["applications"]:  
+            #if item["name"] not in app_list: # если not то это спиcок исключений. 
+            app_id = item["id"]           
+            app.append(app_id)             
+        
         return app 
+    
     else:
         print(f"Error: {response.status_code} - {response.text}")
         exit()
@@ -236,10 +250,10 @@ def random_rules():
 
 
 
-mgmt_ip = "192.168.212.10"
+mgmt_ip = "192.168.1.100"
 mgmt_login =  "admin"
 mgmt_pass = "xxXX1234$"
-obj_num = 100
+obj_num = 10
 groupe_name= "Global"
 
 
