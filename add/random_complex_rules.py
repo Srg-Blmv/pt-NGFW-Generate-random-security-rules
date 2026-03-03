@@ -75,7 +75,7 @@ def get_app():
             #if item["name"] not in app_list: # если not то это спиcок исключений. 
             app_id = item["id"]           
             app.append(app_id)             
-        
+            
         return app 
     
     else:
